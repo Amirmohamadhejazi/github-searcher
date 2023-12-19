@@ -1,0 +1,52 @@
+{
+    // vscode general
+    "scm.diffDecorationsIgnoreTrimWhitespace": "true",
+    "files.trimTrailingWhitespace": true,
+    "css.lint.unknownAtRules": "ignore",
+    "explorer.compactFolders": false,
+
+    // eslint extension options
+    "eslint.enable": true,
+    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+
+    // prettier extension setting
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.configPath": ".prettierrc.json",
+
+    // json formatter
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    "cSpell.language": "en,fa",
+
+    "cSpell.words": [
+        "commitlint",
+        "esbenp",
+        "hookform",
+        "mantine",
+        "svgr",
+        "tabler",
+        "tailwindcss",
+        "tanstack",
+        "Zustand"
+    ]
+}
