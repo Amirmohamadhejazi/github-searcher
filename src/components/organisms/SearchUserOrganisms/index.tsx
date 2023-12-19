@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -9,6 +10,7 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa6'
 import { IoLocationOutline } from 'react-icons/io5'
 import { RiTwitterXLine } from 'react-icons/ri'
 import { TbBuildingCommunity } from 'react-icons/tb'
+import { format } from 'date-fns'
 import { NumberParam, useQueryParam } from 'use-query-params'
 import { Modal } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
@@ -42,6 +44,7 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
         open: false,
         type: ''
     })
+
     // -------------------------------------------------------------------- searchUser
     // search first
     const {
@@ -117,10 +120,7 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                                             />
                                                         </div>
                                                     </div>
-                                                    <Link
-                                                        href={`?search=${itemsFavorite.login}`}
-                                                        className=' truncate'
-                                                    >
+                                                    <Link href={`?search=${itemsFavorite.login}`} className=' truncate'>
                                                         <span className='text-sm font-medium '>
                                                             {itemsFavorite.login}{' '}
                                                         </span>
@@ -147,10 +147,10 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                             </div>
                                             <span className='text-xs font-semibold'>
                                                 Creation date:{' '}
-                                                {/* {format(new Date(itemsFavorite.created_at), 'yyyy-MM-dd')} */}
+                                                {format(new Date(itemsFavorite.created_at), 'yyyy-MM-dd')}
                                             </span>
                                             <span className='text-xs font-semibold'>
-                                                {/* last Update: {format(new Date(itemsFavorite.updated_at), 'yyyy-MM-dd')} */}
+                                                last Update: {format(new Date(itemsFavorite.updated_at), 'yyyy-MM-dd')}
                                             </span>
                                         </div>
                                     ))}
@@ -181,10 +181,7 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                                             />
                                                         </div>
                                                     </div>
-                                                    <Link
-                                                        href={`?search=${itemsFavorite.login}`}
-                                                        className=' truncate'
-                                                    >
+                                                    <Link href={`?search=${itemsFavorite.login}`} className=' truncate'>
                                                         <span className='text-sm font-medium '>
                                                             {itemsFavorite.login}{' '}
                                                         </span>
@@ -215,10 +212,10 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                             </div>
                                             <span className='text-xs font-semibold'>
                                                 Creation date:
-                                                {/* {format(new Date(itemsFavorite.created_at), 'yyyy-MM-dd')} */}
+                                                {format(new Date(itemsFavorite.created_at), 'yyyy-MM-dd')}
                                             </span>
                                             <span className='text-xs font-semibold'>
-                                                {/* last Update: {format(new Date(itemsFavorite.updated_at), 'yyyy-MM-dd')} */}
+                                                last Update: {format(new Date(itemsFavorite.updated_at), 'yyyy-MM-dd')}
                                             </span>
                                         </div>
                                     ))}
@@ -310,7 +307,9 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                     <AiOutlineUser className='text-xl' />
                                     <div
                                         className='flex  cursor-pointer gap-x-1'
-                                        onClick={() => setOpenModal({ open: true, type: 'followers' })}
+                                        onClick={() =>
+                                            data?.data.followers > 0 && setOpenModal({ open: true, type: 'followers' })
+                                        }
                                     >
                                         <span>{data?.data.followers}</span>
                                         <span className=''>followers</span>
@@ -318,14 +317,16 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                     <span>.</span>
                                     <div
                                         className='flex  cursor-pointer gap-x-1'
-                                        onClick={() => setOpenModal({ open: true, type: 'following' })}
+                                        onClick={() =>
+                                            data?.data.following > 0 && setOpenModal({ open: true, type: 'following' })
+                                        }
                                     >
                                         <span>{data?.data.following}</span>
                                         <span className=''>following</span>
                                     </div>
                                 </div>
                                 <span className='text-sm'>
-                                    {/* Creation date: {format(new Date(data.created_at), 'yyyy-MM-dd')} */}
+                                    Creation date: {format(new Date(data?.data.created_at), 'yyyy-MM-dd')}
                                 </span>
                             </div>
                             <div className='flex flex-col gap-y-1'>
