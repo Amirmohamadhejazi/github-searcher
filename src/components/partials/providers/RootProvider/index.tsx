@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import NextAdapterApp from 'next-query-params/app'
 import { QueryParamProvider } from 'use-query-params'
+import '@mantine/core/styles.css'
+import { MantineProvider } from '@mantine/core'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
@@ -21,10 +23,11 @@ const RootProvider = ({ children }: TWrapperWithChildrenType) => {
                 }
             })
     )
-
     return (
         <QueryClientProvider client={queryClient}>
-            <QueryParamProvider adapter={NextAdapterApp}>{children}</QueryParamProvider>
+            <QueryParamProvider adapter={NextAdapterApp}>
+                <MantineProvider>{children}</MantineProvider>
+            </QueryParamProvider>
             <ReactQueryDevtools initialIsOpen={false} buttonPosition='bottom-left' />
         </QueryClientProvider>
     )

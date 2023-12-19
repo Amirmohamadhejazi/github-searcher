@@ -1,7 +1,7 @@
-import { LandingTemplate } from '@templates/LandingTemplate'
+import { GitTemplate } from '@templates/GitTemplate'
 
 const LandingPage = () => {
-    return <LandingTemplate />
+    return <GitTemplate />
 }
 
 export default LandingPage

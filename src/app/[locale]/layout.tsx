@@ -25,9 +25,7 @@ const RootLayout = ({ children, params: { locale } }: IRootLayoutProps) => {
     return (
         <html lang={locale}>
             <body className={` ` + inter.className}>
-                <RootProvider>
-                    <div className='min-h-screen bg-black text-white'>{children}</div>
-                </RootProvider>
+                <RootProvider>{children}</RootProvider>
             </body>
         </html>
     )
