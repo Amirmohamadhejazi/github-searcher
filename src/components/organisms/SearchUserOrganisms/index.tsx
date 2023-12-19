@@ -25,6 +25,8 @@ import removeDuplicateObjects from '@core/constants/helpers/removeDuplicateObjec
 import { getUser } from '@core/services/api/get-user-api'
 import { type TCriticalAnyType } from '@core/types/common/critical-any'
 
+import OrgansUser from './resources/components/OrgansUser'
+
 const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
     const searchParams = useSearchParams()
     const searchQueryParams: TCriticalAnyType = searchParams.get('search')
@@ -353,9 +355,9 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                 )}
                             </div>
                         </div>
-                        OrgansUser
+                        {/* OrgansUser  */}
                         {/* {organHandler()} */}
-                        {/* <OrgansUser inputSearch={searchQueryParams} /> */}
+                        <OrgansUser inputSearch={searchQueryParams} />
                     </div>
                     <div className='col-span-1 lg:col-span-3 overflow-auto bg-slate-200 p-1 rounded-md  '>
                         SearchRepoUser
