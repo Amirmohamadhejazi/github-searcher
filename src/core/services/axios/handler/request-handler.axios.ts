@@ -1,5 +1,7 @@
 import { type AxiosError } from 'axios'
 
+import { type TCriticalAnyType } from '@core/types/common/critical-any'
+
 import { type TAxiosRequestConfigType, type TRequestType, type TResponseType } from './resources'
 
 /**
@@ -16,7 +18,7 @@ import { type TAxiosRequestConfigType, type TRequestType, type TResponseType } f
 
 const axiosRequestHandler =
     <TParam, TResponse, TError = AxiosError>(request: TRequestType<TParam, TResponse>) =>
-    async (config?: TAxiosRequestConfigType<TParam>): TResponseType<TResponse, TError> => {
+    async (config?: TAxiosRequestConfigType<TParam> | TCriticalAnyType): TResponseType<TResponse, TError> => {
         try {
             const response = await request(config)
             return { code: 'success', data: response.data }

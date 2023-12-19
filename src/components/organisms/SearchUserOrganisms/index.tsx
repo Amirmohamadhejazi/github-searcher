@@ -26,6 +26,8 @@ import { getUser } from '@core/services/api/get-user-api'
 import { type TCriticalAnyType } from '@core/types/common/critical-any'
 
 import OrgansUser from './resources/components/OrgansUser'
+import SearchRepoUser from './resources/components/SearchRepoUser'
+import UserFollowersAndFollowing from './resources/components/UserFollowersAndFollowing'
 
 const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
     const searchParams = useSearchParams()
@@ -260,7 +262,7 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
 
         return (
             <GitContainer searchSubmit={searchSubmit} formRef={formRef}>
-                <div className='w-full grid grid-cols-1 lg:grid-cols-4 gap-2 '>
+                <div className='w-full grid grid-cols-1 lg:grid-cols-4 gap-2'>
                     <div className='col-span-1 lg:col-span-1 p-1'>
                         <div className='flex flex-col gap-y-2'>
                             <div
@@ -355,13 +357,10 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                 )}
                             </div>
                         </div>
-                        {/* OrgansUser  */}
-                        {/* {organHandler()} */}
                         <OrgansUser inputSearch={searchQueryParams} />
                     </div>
                     <div className='col-span-1 lg:col-span-3 overflow-auto bg-slate-200 p-1 rounded-md  '>
-                        SearchRepoUser
-                        {/* <SearchRepoUser inputSearch={searchQueryParams} dataUser={data} /> */}
+                        <SearchRepoUser inputSearch={searchQueryParams} dataUser={data?.data} />
                     </div>
                 </div>
                 <Modal
@@ -378,13 +377,13 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                     centered
                 >
                     <div className='  p-2 bg-slate-100 rounded-md'>
-                        {/* <UserFollowersAndFollowing
+                        <UserFollowersAndFollowing
                             openModal={OpenModal}
                             setModalAvatar={setModalAvatar}
                             setOpenModal={setOpenModal}
                             userDetailSocial={{ followers: data.followers, following: data.following }}
                             inputSearch={searchQueryParams}
-                        /> */}
+                        />
                     </div>
                 </Modal>
 
