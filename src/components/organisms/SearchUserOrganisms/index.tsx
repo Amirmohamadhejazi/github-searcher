@@ -381,7 +381,7 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                             openModal={OpenModal}
                             setModalAvatar={setModalAvatar}
                             setOpenModal={setOpenModal}
-                            userDetailSocial={{ followers: data.followers, following: data.following }}
+                            userDetailSocial={{ followers: data.data.followers, following: data.data.following }}
                             inputSearch={searchQueryParams}
                         />
                     </div>
