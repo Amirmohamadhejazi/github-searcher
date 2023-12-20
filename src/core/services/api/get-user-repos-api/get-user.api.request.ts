@@ -7,22 +7,3 @@ const getUserRepos = axiosRequestHandler(({ inputSearch, pageDataRepos, sortRepo
 )
 
 export default getUserRepos
-
-
-// export const getUserRepos = async ({
-//     inputSearch,
-//     pageDataRepos,
-//     sortReposType
-// }: {
-//     inputSearch: string;
-//     pageDataRepos: number;
-//     sortReposType: string;
-// }) => {
-//     try {
-//         return axiosInterceptor.get(`/users/${inputSearch}/repos?page=${pageDataRepos}&sort=${sortReposType}`).then(
-//             (res) => res.data
-//         );
-//     } catch (error: any) {
-//         return error.response?.data;
-//     }
-// };
