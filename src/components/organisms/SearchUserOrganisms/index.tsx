@@ -274,10 +274,15 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                                     })
                                 }
                             >
-                                <div className='h-full w-full rounded-full overflow-hidden'>
-                                    <img src={data?.data.avatar_url} className='w-full h-full object-cover' alt='' />
+                                <div className=' rounded-full overflow-hidden'>
+                                    <img
+                                        src={data?.data.avatar_url}
+                                        className='w-full h-full object-cover'
+                                        alt={data?.data.avatar_url}
+                                    />
                                 </div>
                             </div>
+
                             <div className='flex justify-between items-start'>
                                 <div className='flex flex-col'>
                                     <span className='text-lg font-semibold'>{data?.data.name}</span>
@@ -359,7 +364,7 @@ const SearchUserOrganisms = ({ searchSubmit, formRef }: TCriticalAnyType) => {
                         </div>
                         <OrgansUser inputSearch={searchQueryParams} />
                     </div>
-                    <div className='col-span-1 lg:col-span-3 overflow-auto bg-slate-200 p-1 rounded-md  '>
+                    <div className='col-span-1 lg:col-span-3 overflow-auto bg-slate-200 p-2 rounded-md  '>
                         <SearchRepoUser inputSearch={searchQueryParams} dataUser={data?.data} />
                     </div>
                 </div>

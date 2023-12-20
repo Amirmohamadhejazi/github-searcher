@@ -22,7 +22,7 @@ const GitContainer = ({
     })
 
     return (
-        <div className='w-[90%] sm:w-auto lg:h-screen flex flex-col  container items-center mx-auto py-4  relative '>
+        <div className='w-[90%] sm:w-auto lg:h-screen flex flex-col  container items-center mx-auto py-4 relative '>
             <div
                 className={`absolute top-5  bg-sky-200 rounded-md  duration-500  flex items-center justify-center cursor-pointer ${
                     query.search ? 'visible opacity-100  right-5' : 'invisible opacity-0 right-0'

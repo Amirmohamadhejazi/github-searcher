@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/navigation'
-import { IoIosLink } from 'react-icons/io'
 import { NumberParam, useQueryParam } from 'use-query-params'
 import { Pagination } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
 
 import Error from '@molecules/Error/Error'
+import FollowersAndFollowingCart from '@molecules/FollowersAndFollowingCart/FollowersAndFollowingCart'
 import Loading from '@molecules/Loading/Loading'
 import NoData from '@molecules/NoData/NoData'
 
@@ -29,7 +28,6 @@ const UserFollowersAndFollowing = ({
 }) => {
     const searchParams = useSearchParams()
 
-    const router = useRouter()
     const currentPageFollowersAndFollowing = Number(searchParams.get('pageFollowersAndFollowing')) || 1
     const [, setQuery] = useQueryParam('pageFollowersAndFollowing', NumberParam)
     const {
@@ -93,70 +91,12 @@ const UserFollowersAndFollowing = ({
                     </div>
                 )}
                 {data?.data?.map((itemsFallowAndFollowing: TCriticalAnyType) => (
-                    <div
-                        className='bg-gray-300 p-2 rounded-md flex items-center justify-between'
+                    <FollowersAndFollowingCart
+                        itemsFallowAndFollowing={itemsFallowAndFollowing}
+                        setModalAvatar={setModalAvatar}
+                        setOpenModal={setOpenModal}
                         key={itemsFallowAndFollowing.id}
-                    >
-                        <div className='flex items-center gap-2'>
-                            <div
-                                className='w-10 h-10 bg-blue-950 shadow-2xl rounded-full p-1  cursor-pointer '
-                                onClick={() =>
-                                    setModalAvatar({
-                                        open: true,
-                                        data: {
-                                            avatar: itemsFallowAndFollowing.avatar_url,
-                                            name: itemsFallowAndFollowing.login
-                                        }
-                                    })
-                                }
-                            >
-                                <div className='h-full w-full rounded-full overflow-hidden'>
-                                    <img
-                                        src={itemsFallowAndFollowing.avatar_url}
-                                        className='w-full h-full object-cover'
-                                        alt=''
-                                    />
-                                </div>
-                            </div>
-                            {/*  */}
-                            <span className=' font-semibold'>{itemsFallowAndFollowing.login}</span>
-                            {/* */}
-                        </div>
-                        <div
-                            className='p-1 bg-slate-200 rounded-md cursor-pointer'
-                            onClick={() => {
-                                setOpenModal({
-                                    open: false,
-                                    type: ''
-                                })
-                                router.push(`?search=${itemsFallowAndFollowing.login}`)
-                            }}
-                        >
-                            <IoIosLink />
-                        </div>
-                        {/* <div className="flex gap-x-2 items-center">
-                            <div className="flex gap-x-2 text-sm items-center">
-                                <div
-                                    onClick={() => {
-                                        setInputSearch(itemsFallowAndFollowing.login);
-                                        setOpenModal({ ...openModal, type: 'followers' });
-                                    }}
-                                    className="cursor-pointer"
-                                >
-                                    <span className="font-medium">followers</span> .
-                                </div>
-                                <div
-                                    onClick={() => {
-                                        setInputSearch(itemsFallowAndFollowing.login);
-                                        setOpenModal({ ...openModal, type: 'following' });
-                                    }}
-                                    className="cursor-pointer"
-                                >
-                                    <span className="font-medium">following</span>
-                                </div>
-                            </div>
-                        </div> */}
-                    </div>
+                    />
                 ))}
             </div>
         )
