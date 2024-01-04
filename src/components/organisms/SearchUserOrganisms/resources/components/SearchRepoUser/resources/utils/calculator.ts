@@ -1,20 +1,7 @@
 import { type TCriticalAnyType } from '@core/types/common/critical-any'
 
-type TDataSocial = {
-    avatarOwner: string
-    name: string
-    url: string
-    clone_url: string
-    language: string
-    watchers_count: number
-    created_at: string
-    updated_at: string
-    pushed_at: string
-    homepageUrl: string
-    topics: string[]
-    forks: number
-    id: number
-}
+import { type TDataSocial } from '../types'
+
 const calculator = (data: TCriticalAnyType = []) => {
     const convertRepData: TDataSocial[] = data?.map((itemsRep: TCriticalAnyType) => {
         return {

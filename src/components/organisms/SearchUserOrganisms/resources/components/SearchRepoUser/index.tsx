@@ -44,12 +44,12 @@ const SearchRepoUser = ({ inputSearch, dataUser }: TCriticalAnyType) => {
                 }
             ],
             queryFn: () =>
-                inputSearch &&
                 getUserRepos({
                     inputSearch: inputSearch,
                     pageDataRepos: currentTab,
                     sortReposType: reposType
                 }),
+            enabled: !!inputSearch,
             retry: 1,
             retryOnMount: false,
             staleTime: 1200

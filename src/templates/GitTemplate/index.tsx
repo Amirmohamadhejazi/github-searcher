@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import { useRef } from 'react'
@@ -7,16 +6,18 @@ import { NumberParam, StringParam, useQueryParams } from 'use-query-params'
 
 import SearchUserOrganisms from '@organisms/SearchUserOrganisms'
 
+import { type TCriticalAnyType } from '@core/types/common/critical-any'
+
 const GitTemplate = () => {
-    const formRef = useRef<any>(null)
+    const formRef = useRef<TCriticalAnyType>(null)
     const [, setQuery] = useQueryParams({
         pageRepository: NumberParam,
         reposType: StringParam,
         search: StringParam
     })
-    const searchSubmit = (e: any) => {
+    const searchSubmit = (e: TCriticalAnyType) => {
         e.preventDefault()
-        const dataInput: any = Object.fromEntries(new FormData(formRef.current).entries()).search
+        const dataInput: TCriticalAnyType = Object.fromEntries(new FormData(formRef.current).entries()).search
         if (dataInput.trim().length !== 0) {
             setQuery({ search: dataInput, reposType: undefined, pageRepository: undefined })
         }

@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { axiosInterceptor, axiosRequestHandler } from '@core/services/axios'
+import { type TCriticalAnyType } from '@core/types/common/critical-any'
 
-const getUserFollowersAndFollowing = axiosRequestHandler(({ inputSearch, type, pageDataFollowersAndFollowing }: any) =>
-    axiosInterceptor.get(`/users/${inputSearch}/${type}?page=${pageDataFollowersAndFollowing}`)
+const getUserFollowersAndFollowing = axiosRequestHandler(
+    ({ inputSearch, type, pageDataFollowersAndFollowing }: TCriticalAnyType) =>
+        axiosInterceptor.get(`/users/${inputSearch}/${type}?page=${pageDataFollowersAndFollowing}`)
 )
 
 export default getUserFollowersAndFollowing

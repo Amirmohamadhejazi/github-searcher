@@ -18,8 +18,7 @@ const UserFollowersAndFollowing = ({
     userDetailSocial: { followers, following },
     setModalAvatar,
     setOpenModal
-}: // pageDataFollowFollowing
-{
+}: {
     inputSearch: string | null
     openModal: TCriticalAnyType
     userDetailSocial: TCriticalAnyType

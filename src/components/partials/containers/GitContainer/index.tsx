@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 'use client'
 import React from 'react'
 import { IoSearch } from 'react-icons/io5'
@@ -8,14 +6,16 @@ import { VscGithub } from 'react-icons/vsc'
 import { StringParam, useQueryParams } from 'use-query-params'
 import { TextInput } from '@mantine/core'
 
+import { type TCriticalAnyType } from '@core/types/common/critical-any'
+
 const GitContainer = ({
     children,
     searchSubmit,
     formRef
 }: {
     children: React.ReactNode
-    searchSubmit: any
-    formRef: any
+    searchSubmit: TCriticalAnyType
+    formRef: TCriticalAnyType
 }) => {
     const [query, setQuery] = useQueryParams({
         search: StringParam
